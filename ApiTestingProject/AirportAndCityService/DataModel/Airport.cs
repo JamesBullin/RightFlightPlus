@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApiTestingProject
 {
-    public enum LocationType { Airport, City }
+    public enum LocationType { Airport = 2, City = 4 }
 
     public class Airport
     {
@@ -24,7 +24,7 @@ namespace ApiTestingProject
         public string Id { get; set; }
 
         [JsonProperty("timeZoneOffset")]
-        public TimeSpan TimeZoneOffset { get; set; }
+        public string TimeZoneOffset { get; set; }
 
         [JsonProperty("iataCode")]
         public string IataCode { get; set; }
