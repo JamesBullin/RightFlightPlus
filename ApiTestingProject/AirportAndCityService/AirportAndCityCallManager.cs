@@ -21,18 +21,27 @@ namespace ApiTestingProject
         {
             string subTypeParameter;
 
-            //The encoded values of this enum allow you to choose both Airport and City. If this is the case then the string representation sent as a parameter
-            //to the API needs to be a comma-separated list.
-            if (subType == (LocationType.Airport | LocationType.City))
-                subTypeParameter = LocationType.Airport.ToString() + ',' + LocationType.City.ToString();
-            else
-                subTypeParameter = subType.ToString();
+            switch (subType)
+            {
+                case LocationType.Airport:
+                    subTypeParameter = "AIRPORT";
+                    break;
+                case LocationType.City:
+                    subTypeParameter = "CITY";
+                    break;
+                case LocationType.Airport | LocationType.City:
+                    subTypeParameter = "AIRPORT,CITY";
+                    break;
+                default:
+                    subTypeParameter = "AIRPORT";
+                    break;
+            }
 
             RestRequest request = new RestRequest("reference-data/locations", Method.GET);
 
             request.AddHeader("Authorization", $"Bearer {m_authorizationToken}");
 
-            request.AddParameter("subType", subType.ToString());
+            request.AddParameter("subType", subTypeParameter);
             request.AddParameter("keyword", keyword);
 
             return m_client.Execute(request).Content;
