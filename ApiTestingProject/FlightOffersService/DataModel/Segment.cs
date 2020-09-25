@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace ApiTestingProject
 {
@@ -19,10 +18,12 @@ namespace ApiTestingProject
         public string Number { get; set; }
 
         [JsonProperty("aircraft")]
-        public Aircraft Aircraft { get; set; }
+        [JsonConverter(typeof(AircraftConverter))]
+        public string AircraftCode { get; set; }
 
         [JsonProperty("operating")]
-        public Operator Operating { get; set; }
+        [JsonConverter(typeof(OperatorConverter))]
+        public string OperatorCode { get; set; }
 
         [JsonProperty("duration")]
         public string Duration { get; set; }
