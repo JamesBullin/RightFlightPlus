@@ -83,8 +83,19 @@
     <Compile Include="AirportAndCityService\DataModel\AirportAndCityDto.cs" />
     <Compile Include="AirportAndCityService\DataModel\GeoCode.cs" />
     <Compile Include="ConfigReader.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightEndpoint.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightOffer.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightOffersDto.cs" />
+    <Compile Include="FlightOffersService\DataModel\Itinerary.cs" />
+    <Compile Include="FlightOffersService\DataModel\Price.cs" />
+    <Compile Include="FlightOffersService\DataModel\Segment.cs" />
+    <Compile Include="FlightOffersService\FlightOffersCallManager.cs" />
+    <Compile Include="FlightOffersService\FlightOffersService.cs" />
+    <Compile Include="JsonConverters\AircraftConverter.cs" />
+    <Compile Include="JsonConverters\OperatorConverter.cs" />
     <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ConverterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
