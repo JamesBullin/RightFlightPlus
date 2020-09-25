@@ -83,7 +83,7 @@
     <Compile Include="AirportAndCityService\DataModel\AirportAndCityDto.cs" />
     <Compile Include="AirportAndCityService\DataModel\GeoCode.cs" />
     <Compile Include="ConfigReader.cs" />
-    <Compile Include="Tests\Tests.cs" />
+    <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenService\TokenCallManager.cs" />
     <Compile Include="TokenService\TokenDto.cs" />
