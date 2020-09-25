@@ -83,15 +83,16 @@
     <Compile Include="AirportAndCityService\DataModel\AirportAndCityDto.cs" />
     <Compile Include="AirportAndCityService\DataModel\GeoCode.cs" />
     <Compile Include="ConfigReader.cs" />
-    <Compile Include="FlightOffersService\Aircraft.cs" />
-    <Compile Include="FlightOffersService\FlightEndpoint.cs" />
-    <Compile Include="FlightOffersService\FlightOffer.cs" />
-    <Compile Include="FlightOffersService\FlightOffersDto.cs" />
-    <Compile Include="FlightOffersService\Itinerary.cs" />
-    <Compile Include="FlightOffersService\Operator.cs" />
-    <Compile Include="FlightOffersService\Price.cs" />
-    <Compile Include="FlightOffersService\Segment.cs" />
-    <Compile Include="FlightOffersService\TravelerPricing.cs" />
+    <Compile Include="FlightOffersService\DataModel\Aircraft.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightEndpoint.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightOffer.cs" />
+    <Compile Include="FlightOffersService\DataModel\FlightOffersDto.cs" />
+    <Compile Include="FlightOffersService\DataModel\Itinerary.cs" />
+    <Compile Include="FlightOffersService\DataModel\Operator.cs" />
+    <Compile Include="FlightOffersService\DataModel\Price.cs" />
+    <Compile Include="FlightOffersService\DataModel\Segment.cs" />
+    <Compile Include="FlightOffersService\FlightOffersCallManager.cs" />
+    <Compile Include="FlightOffersService\FlightOffersService.cs" />
     <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
