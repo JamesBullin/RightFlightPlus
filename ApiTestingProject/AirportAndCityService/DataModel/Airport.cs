@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ApiTestingProject
 {
@@ -9,6 +9,7 @@ namespace ApiTestingProject
     public class Airport
     {
         [JsonProperty("subType")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public LocationType SubType { get; set; }
 
         [JsonProperty("name")]
