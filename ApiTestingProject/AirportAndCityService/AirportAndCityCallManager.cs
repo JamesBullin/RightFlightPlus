@@ -19,6 +19,15 @@ namespace ApiTestingProject
 
         public string GetAirportAndCityRawResult(LocationType subType, string keyword)
         {
+            string subTypeParameter;
+
+            //The encoded values of this enum allow you to choose both Airport and City. If this is the case then the string representation sent as a parameter
+            //to the API needs to be a comma-separated list.
+            if (subType == (LocationType.Airport | LocationType.City))
+                subTypeParameter = LocationType.Airport.ToString() + ',' + LocationType.City.ToString();
+            else
+                subTypeParameter = subType.ToString();
+
             RestRequest request = new RestRequest("reference-data/locations", Method.GET);
 
             request.AddHeader("Authorization", $"Bearer {m_authorizationToken}");
