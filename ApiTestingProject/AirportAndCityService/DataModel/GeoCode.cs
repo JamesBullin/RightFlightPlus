@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ApiTestingProject
 {
     public class GeoCode
     {
+        [JsonProperty("latitude")]
+        public float Latitude { get; set; }
+
+        [JsonProperty("longitude")]
+        public float Longitude { get; set; }
     }
 }
