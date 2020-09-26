@@ -12,14 +12,14 @@ namespace ApiTestingProject
         [Test]
         public void AircraftSerializedCorrectly()
         {
-            Segment segment = new Segment
+            AircraftDummyObject dummyObject = new AircraftDummyObject
             {
                 AircraftCode = "737"
             };
 
-            Assert.That(() => JsonConvert.SerializeObject(segment), Throws.Nothing);
+            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
 
-            string serializedJson = JsonConvert.SerializeObject(segment);
+            string serializedJson = JsonConvert.SerializeObject(dummyObject);
 
             JObject j = JObject.Parse(serializedJson);
 
@@ -29,14 +29,14 @@ namespace ApiTestingProject
         [Test]
         public void OperatorSerializedCorrectly()
         {
-            Segment segment = new Segment
+            OperatorDummyObject dummyObject = new OperatorDummyObject
             {
                 OperatorCode = "BA"
             };
 
-            Assert.That(() => JsonConvert.SerializeObject(segment), Throws.Nothing);
+            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
 
-            string serializedJson = JsonConvert.SerializeObject(segment);
+            string serializedJson = JsonConvert.SerializeObject(dummyObject);
 
             JObject j = JObject.Parse(serializedJson);
 
@@ -51,13 +51,13 @@ namespace ApiTestingProject
 
             j["aircraft"]["code"] = "737";
 
-            string segmentRaw = j.ToString();
+            string dummyObjectRaw = j.ToString();
 
-            Assert.That(() => JsonConvert.DeserializeObject<Segment>(segmentRaw), Throws.Nothing);
+            Assert.That(() => JsonConvert.DeserializeObject<AircraftDummyObject>(dummyObjectRaw), Throws.Nothing);
 
-            Segment segment = JsonConvert.DeserializeObject<Segment>(segmentRaw);
+            AircraftDummyObject dummyObject = JsonConvert.DeserializeObject<AircraftDummyObject>(dummyObjectRaw);
 
-            Assert.That(segment.AircraftCode, Is.EqualTo("737"));
+            Assert.That(dummyObject.AircraftCode, Is.EqualTo("737"));
         }
 
         [Test]
@@ -68,13 +68,130 @@ namespace ApiTestingProject
 
             j["operating"]["carrierCode"] = "BA";
 
-            string segmentRaw = j.ToString();
+            string dummyObjectRaw = j.ToString();
 
-            Assert.That(() => JsonConvert.DeserializeObject<Segment>(segmentRaw), Throws.Nothing);
+            Assert.That(() => JsonConvert.DeserializeObject<OperatorDummyObject>(dummyObjectRaw), Throws.Nothing);
 
-            Segment segment = JsonConvert.DeserializeObject<Segment>(segmentRaw);
+            OperatorDummyObject dummyObject = JsonConvert.DeserializeObject<OperatorDummyObject>(dummyObjectRaw);
 
-            Assert.That(segment.OperatorCode, Is.EqualTo("BA"));
+            Assert.That(dummyObject.OperatorCode, Is.EqualTo("BA"));
+        }
+
+        [Test]
+        public void PositiveTimeZoneOffsetSerializedCorrectly()
+        {
+            TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
+            {
+                TimeZoneOffset = new TimeSpan(5, 0, 0)
+            };
+
+            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
+
+            string serializedJson = JsonConvert.SerializeObject(dummyObject);
+
+            JObject j = JObject.Parse(serializedJson);
+
+            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("+05:00"));
+        }
+
+        [Test]
+        public void NegativeTimeZoneOffsetSerializedCorrectly()
+        {
+            TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
+            {
+                TimeZoneOffset = new TimeSpan(-4, 0, 0)
+            };
+
+            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
+
+            string serializedJson = JsonConvert.SerializeObject(dummyObject);
+
+            JObject j = JObject.Parse(serializedJson);
+
+            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("-04:00"));
+        }
+
+        [Test]
+        public void ZeroTimeZoneOffsetSerializedCorrectly()
+        {
+            TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
+            {
+                TimeZoneOffset = TimeSpan.Zero
+            };
+
+            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
+
+            string serializedJson = JsonConvert.SerializeObject(dummyObject);
+
+            JObject j = JObject.Parse(serializedJson);
+
+            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("+00:00"));
+        }
+
+        [Test]
+        public void PositiveTimeZoneOffsetDeserializedCorrectly()
+        {
+            JObject j = new JObject();
+            j["timeZoneOffset"] = "+03:00";
+
+            string dummyObjectRaw = j.ToString();
+
+            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
+
+            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
+
+            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(new TimeSpan(3, 0, 0)));
+        }
+
+        [Test]
+        public void NegativeTimeZoneOffsetDeserializedCorrectly()
+        {
+            JObject j = new JObject();
+            j["timeZoneOffset"] = "-07:00";
+
+            string dummyObjectRaw = j.ToString();
+
+            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
+
+            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
+
+            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(new TimeSpan(-7, 0, 0)));
+        }
+
+        [Test]
+        public void ZeroTimeZoneOffsetDeserializedCorrectly()
+        {
+            JObject j = new JObject();
+            j["timeZoneOffset"] = "+00:00";
+
+            string dummyObjectRaw = j.ToString();
+
+            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
+
+            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
+
+            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(TimeSpan.Zero));
+        }
+
+        private class AircraftDummyObject
+        {
+            [JsonProperty("aircraft")]
+            [JsonConverter(typeof(AircraftConverter))]
+            public string AircraftCode { get; set; }
+        }
+
+        private class OperatorDummyObject
+        {
+            [JsonProperty("operating")]
+            [JsonConverter(typeof(OperatorConverter))]
+            public string OperatorCode { get; set; }
+        }
+
+        private class TimeZoneOffsetDummyObject
+        {
+            [JsonProperty("timeZoneOffset")]
+            [JsonConverter(typeof(TimeZoneOffsetConverter))]
+            public TimeSpan TimeZoneOffset { get; set; }
         }
     }
 }
