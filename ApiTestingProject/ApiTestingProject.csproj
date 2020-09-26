@@ -92,6 +92,7 @@
     <Compile Include="FlightOffersService\FlightOffersCallManager.cs" />
     <Compile Include="FlightOffersService\FlightOffersService.cs" />
     <Compile Include="JsonConverters\AircraftConverter.cs" />
+    <Compile Include="JsonConverters\DurationConverter.cs" />
     <Compile Include="JsonConverters\OperatorConverter.cs" />
     <Compile Include="JsonConverters\TimeZoneOffsetConverter.cs" />
     <Compile Include="Tests\AirportAndCityTests.cs" />

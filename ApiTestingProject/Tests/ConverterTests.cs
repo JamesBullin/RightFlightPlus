@@ -46,10 +46,14 @@ namespace ApiTestingProject
         [Test]
         public void AircraftDeserializedCorrectly()
         {
-            JObject j = new JObject();
-            j["aircraft"] = new JObject();
+            JObject j = new JObject
+            {
+                ["aircraft"] = new JObject
+                {
+                    ["code"] = "737"
+                }
+            };
 
-            j["aircraft"]["code"] = "737";
 
             string dummyObjectRaw = j.ToString();
 
@@ -63,10 +67,14 @@ namespace ApiTestingProject
         [Test]
         public void OperatorDeserializedCorrectly()
         {
-            JObject j = new JObject();
-            j["operating"] = new JObject();
+            JObject j = new JObject
+            {
+                ["operating"] = new JObject
+                {
+                    ["carrierCode"] = "BA"
+                }
+            };
 
-            j["operating"]["carrierCode"] = "BA";
 
             string dummyObjectRaw = j.ToString();
 
@@ -77,12 +85,16 @@ namespace ApiTestingProject
             Assert.That(dummyObject.OperatorCode, Is.EqualTo("BA"));
         }
 
-        [Test]
-        public void PositiveTimeZoneOffsetSerializedCorrectly()
+        [TestCase(5, 0, "+05:00")]
+        [TestCase(7, 30, "+07:30")]
+        [TestCase(-4, 0, "-04:00")]
+        [TestCase(-6, -30, "-06:30")]
+        [TestCase(0, 0, "+00:00")]
+        public void TimeZoneOffsetSerializedCorrectly(int hours, int minutes, string expected)
         {
             TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
             {
-                TimeZoneOffset = new TimeSpan(5, 0, 0)
+                TimeZoneOffset = new TimeSpan(hours, minutes, 0)
             };
 
             Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
@@ -91,15 +103,39 @@ namespace ApiTestingProject
 
             JObject j = JObject.Parse(serializedJson);
 
-            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("+05:00"));
+            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo(expected));
         }
 
-        [Test]
-        public void NegativeTimeZoneOffsetSerializedCorrectly()
+        [TestCase("+03:00", 3, 0)]
+        [TestCase("+02:30", 2, 30)]
+        [TestCase("-07:00", -7, 0)]
+        [TestCase("-06:30", -6, -30)]
+        [TestCase("+00:00", 0, 0)]
+        public void TimeZoneOffsetDeserializedCorrectly(string input, int expectedHours, int expectedMinutes)
         {
-            TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
+            JObject j = new JObject
             {
-                TimeZoneOffset = new TimeSpan(-4, 0, 0)
+                ["timeZoneOffset"] = input
+            };
+
+            string dummyObjectRaw = j.ToString();
+
+            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
+
+            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
+
+            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(new TimeSpan(expectedHours, expectedMinutes, 0)));
+        }
+
+        [TestCase(5, 30, "PT05H30M")]
+        [TestCase(4, 5, "PT04H05M")]
+        [TestCase(14, 20, "PT14H20M")]
+        [TestCase(7, 0, "PT07H")]
+        public void DurationSerializedCorrectly(int hours, int minutes, string expected)
+        {
+            DurationDummyObject dummyObject = new DurationDummyObject
+            {
+                Duration = new TimeSpan(hours, minutes, 0)
             };
 
             Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
@@ -108,69 +144,27 @@ namespace ApiTestingProject
 
             JObject j = JObject.Parse(serializedJson);
 
-            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("-04:00"));
+            Assert.That(j["duration"].ToString(), Is.EqualTo(expected));
         }
 
-        [Test]
-        public void ZeroTimeZoneOffsetSerializedCorrectly()
+        [TestCase("PT04H15M", 4, 15)]
+        [TestCase("PT08H05M", 8, 5)]
+        [TestCase("PT12H10M", 12, 10)]
+        [TestCase("PT03H", 3, 0)]
+        public void DurationDeserializedCorrectly(string input, int expectedHours, int expectedMinutes)
         {
-            TimeZoneOffsetDummyObject dummyObject = new TimeZoneOffsetDummyObject
+            JObject j = new JObject
             {
-                TimeZoneOffset = TimeSpan.Zero
+                ["duration"] = input
             };
 
-            Assert.That(() => JsonConvert.SerializeObject(dummyObject), Throws.Nothing);
-
-            string serializedJson = JsonConvert.SerializeObject(dummyObject);
-
-            JObject j = JObject.Parse(serializedJson);
-
-            Assert.That(j["timeZoneOffset"].ToString(), Is.EqualTo("+00:00"));
-        }
-
-        [Test]
-        public void PositiveTimeZoneOffsetDeserializedCorrectly()
-        {
-            JObject j = new JObject();
-            j["timeZoneOffset"] = "+03:00";
-
             string dummyObjectRaw = j.ToString();
 
-            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
+            Assert.That(() => JsonConvert.DeserializeObject<DurationDummyObject>(dummyObjectRaw), Throws.Nothing);
 
-            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
+            DurationDummyObject dummyObject = JsonConvert.DeserializeObject<DurationDummyObject>(dummyObjectRaw);
 
-            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(new TimeSpan(3, 0, 0)));
-        }
-
-        [Test]
-        public void NegativeTimeZoneOffsetDeserializedCorrectly()
-        {
-            JObject j = new JObject();
-            j["timeZoneOffset"] = "-07:00";
-
-            string dummyObjectRaw = j.ToString();
-
-            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
-
-            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
-
-            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(new TimeSpan(-7, 0, 0)));
-        }
-
-        [Test]
-        public void ZeroTimeZoneOffsetDeserializedCorrectly()
-        {
-            JObject j = new JObject();
-            j["timeZoneOffset"] = "+00:00";
-
-            string dummyObjectRaw = j.ToString();
-
-            Assert.That(() => JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw), Throws.Nothing);
-
-            TimeZoneOffsetDummyObject dummyObject = JsonConvert.DeserializeObject<TimeZoneOffsetDummyObject>(dummyObjectRaw);
-
-            Assert.That(dummyObject.TimeZoneOffset, Is.EqualTo(TimeSpan.Zero));
+            Assert.That(dummyObject.Duration, Is.EqualTo(new TimeSpan(expectedHours, expectedMinutes, 0)));
         }
 
         private class AircraftDummyObject
@@ -192,6 +186,13 @@ namespace ApiTestingProject
             [JsonProperty("timeZoneOffset")]
             [JsonConverter(typeof(TimeZoneOffsetConverter))]
             public TimeSpan TimeZoneOffset { get; set; }
+        }
+
+        private class DurationDummyObject
+        {
+            [JsonProperty("duration")]
+            [JsonConverter(typeof(DurationConverter))]
+            public TimeSpan Duration { get; set; }
         }
     }
 }
