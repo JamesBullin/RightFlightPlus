@@ -54,7 +54,6 @@ namespace ApiTestingProject
                 }
             };
 
-
             string dummyObjectRaw = j.ToString();
 
             Assert.That(() => JsonConvert.DeserializeObject<AircraftDummyObject>(dummyObjectRaw), Throws.Nothing);
