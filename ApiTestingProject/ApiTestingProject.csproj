@@ -39,6 +39,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -46,6 +49,9 @@
     </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunitlite, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>packages\NUnitLite.3.12.0\lib\net45\nunitlite.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=106.8.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.106.11.5\lib\net452\RestSharp.dll</HintPath>
@@ -98,7 +104,6 @@
     <Compile Include="JsonConverters\TimeZoneOffsetConverter.cs" />
     <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\ConverterTests.cs" />
     <Compile Include="Tests\TestCaseLoaders\AirportAndCityLoader.cs" />
   </ItemGroup>
   <ItemGroup>
