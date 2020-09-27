@@ -56,7 +56,7 @@ namespace ApiTestingProject
         [Test]
         public void TimeZoneOffsetIsCorrect()
         {
-            Assert.That(result.Data[0].TimeZoneOffset, Is.EqualTo("+01:00"));
+            Assert.That(result.Data[0].TimeZoneOffset, Is.EqualTo(new TimeSpan(1, 0, 0)));
         }
 
         [Test]
