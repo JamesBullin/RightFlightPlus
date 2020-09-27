@@ -7,125 +7,86 @@ namespace ApiTestingProject
     [TestFixture]
     public class AirportAndCityTests
     {
-        ITokenService token = new TokenService();
+        private ITokenService m_tokenService;
 
-        LocationType testLocationType = LocationType.Airport;
-        string testKeyword = "london";
-
-        AirportAndCityService request;
-        AirportAndCityDto result;
+        private AirportAndCityDto m_result;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            request = new AirportAndCityService(token);
-            result = request.GetAirportAndCityResult(testLocationType, testKeyword);
+            m_tokenService = new TokenService();
+
+            AirportAndCityService airportAndCityService = new AirportAndCityService(m_tokenService);
+            m_result = airportAndCityService.GetAirportAndCityResult(AirportAndCityLoader.LocationType, AirportAndCityLoader.Keyword);
         }
 
         [Test]
         public void NumberOfResultsIsCorrect()
         {
-            int expectedNumResults = 10;
-            Assert.That(result.Data.Count, Is.EqualTo(expectedNumResults));
+            Assert.That(m_result.Data.Count, Is.EqualTo(AirportAndCityLoader.ExpectedNumberOfResults));
         }
 
-        [Test]
-        public void SubTypeIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.SubTypeCases))]
+        public void SubTypeIsCorrect(int index, LocationType subType)
         {
-            foreach(Location a in result.Data)
-            {
-                Assert.That(a.SubType, Is.EqualTo(LocationType.Airport));
-            }
+            Assert.That(m_result.Data[index].SubType, Is.EqualTo(subType));
         }
 
-        [Test]
-        public void NameIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.NameCases))]
+        public void NameIsCorrect(int index, string name)
         {
-            Assert.That(result.Data[0].Name, Is.EqualTo("HEATHROW"));
-            Assert.That(result.Data[1].Name, Is.EqualTo("GATWICK"));
-            Assert.That(result.Data[2].Name, Is.EqualTo("STANSTED"));
-            Assert.That(result.Data[3].Name, Is.EqualTo("LUTON"));
+            Assert.That(m_result.Data[index].Name, Is.EqualTo(name));
         }
 
-        [Test]
-        public void DetailedNameIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.DetailedNameCases))]
+        public void DetailedNameIsCorrect(int index, string detailedName)
         {
-            Assert.That(result.Data[0].DetailedName, Is.EqualTo("LONDON/GB:HEATHROW"));
-            Assert.That(result.Data[1].DetailedName, Is.EqualTo("LONDON/GB:GATWICK"));
-            Assert.That(result.Data[2].DetailedName, Is.EqualTo("LONDON/GB:STANSTED"));
-            Assert.That(result.Data[3].DetailedName, Is.EqualTo("LONDON/GB:LUTON"));
+            Assert.That(m_result.Data[index].DetailedName, Is.EqualTo(detailedName));
         }
 
-        [Test]
-        public void IdIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.IdCases))]
+        public void IdIsCorrect(int index, string id)
         {
-            Assert.That(result.Data[0].Id, Is.EqualTo("ALHR"));
-            Assert.That(result.Data[1].Id, Is.EqualTo("ALGW"));
-            Assert.That(result.Data[2].Id, Is.EqualTo("ASTN"));
-            Assert.That(result.Data[3].Id, Is.EqualTo("ALTN"));
+            Assert.That(m_result.Data[index].Id, Is.EqualTo(id));
         }
 
-        [Test]
-        public void TimeZoneOffsetIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.TimeZoneOffsetCases))]
+        public void TimeZoneOffsetIsCorrect(int index, TimeSpan timeZoneOffset)
         {
-            Assert.That(result.Data[0].TimeZoneOffset, Is.EqualTo(new TimeSpan(1, 0, 0)));
-            Assert.That(result.Data[1].TimeZoneOffset, Is.EqualTo(new TimeSpan(1, 0, 0)));
-            Assert.That(result.Data[2].TimeZoneOffset, Is.EqualTo(new TimeSpan(1, 0, 0)));
-            Assert.That(result.Data[3].TimeZoneOffset, Is.EqualTo(new TimeSpan(1, 0, 0)));
+            Assert.That(m_result.Data[index].TimeZoneOffset, Is.EqualTo(timeZoneOffset));
         }
 
-        [Test]
-        public void IataCodeIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.IataCodeCases))]
+        public void IataCodeIsCorrect(int index, string iataCode)
         {
-            Assert.That(result.Data[0].IataCode, Is.EqualTo("LHR"));
-            Assert.That(result.Data[1].IataCode, Is.EqualTo("LGW"));
-            Assert.That(result.Data[2].IataCode, Is.EqualTo("STN"));
-            Assert.That(result.Data[3].IataCode, Is.EqualTo("LTN"));
+            Assert.That(m_result.Data[index].IataCode, Is.EqualTo(iataCode));
         }
 
-        [Test]
-        public void GeoCodeIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.GeoCodeCases))]
+        public void GeoCodeIsCorrect(int index, float latitude, float longitude)
         {
-            Assert.That(result.Data[0].GeoCode.Latitude, Is.EqualTo(51.47294f));
-            Assert.That(result.Data[0].GeoCode.Longitude, Is.EqualTo(-0.45061f));
-
-            Assert.That(result.Data[1].GeoCode.Latitude, Is.EqualTo(51.15609f));
-            Assert.That(result.Data[1].GeoCode.Longitude, Is.EqualTo(-0.17818f));
-
-            Assert.That(result.Data[2].GeoCode.Latitude, Is.EqualTo(51.88500f));
-            Assert.That(result.Data[2].GeoCode.Longitude, Is.EqualTo(0.23500f));
-
-            Assert.That(result.Data[3].GeoCode.Latitude, Is.EqualTo(51.87472f));
-            Assert.That(result.Data[3].GeoCode.Longitude, Is.EqualTo(-0.36833f));
+            Assert.That(m_result.Data[index].GeoCode.Latitude, Is.EqualTo(latitude));
+            Assert.That(m_result.Data[index].GeoCode.Longitude, Is.EqualTo(longitude));
         }
 
-        [Test]
-        public void CityIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.CityCases))]
+        public void CityIsCorrect(int index, string cityName, string cityCode)
         {
-            for (int i = 0; i < 4; ++i)
-            {
-                Assert.That(result.Data[i].Address.CityName, Is.EqualTo("LONDON"));
-                Assert.That(result.Data[i].Address.CityCode, Is.EqualTo("LON"));
-            }
+            Assert.That(m_result.Data[index].Address.CityName, Is.EqualTo(cityName));
+            Assert.That(m_result.Data[index].Address.CityCode, Is.EqualTo(cityCode));
         }
 
-        [Test]
-        public void CountryIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.CountryCases))]
+        public void CountryIsCorrect(int index, string countryName, string countryCode)
         {
-            for (int i = 0; i < 4; ++i)
-            {
-                Assert.That(result.Data[i].Address.CountryName, Is.EqualTo("UNITED KINGDOM"));
-                Assert.That(result.Data[i].Address.CountryCode, Is.EqualTo("GB"));
-            }
+            Assert.That(m_result.Data[index].Address.CountryName, Is.EqualTo(countryName));
+            Assert.That(m_result.Data[index].Address.CountryCode, Is.EqualTo(countryCode));
         }
 
-        [Test]
-        public void RegionIsCorrect()
+        [TestCaseSource(typeof(AirportAndCityLoader), nameof(AirportAndCityLoader.RegionCases))]
+        public void RegionIsCorrect(int index, string regionCode)
         {
-            for (int i = 0; i < 4; ++i)
-            {
-                Assert.That(result.Data[i].Address.RegionCode, Is.EqualTo("EUROP"));
-            }
+            Assert.That(m_result.Data[index].Address.RegionCode, Is.EqualTo(regionCode));
         }
     }
 }

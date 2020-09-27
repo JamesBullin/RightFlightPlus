@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTestingProject", "ApiTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenAPI", "..\TokenAPI\TokenAPI.csproj", "{F8DC1388-1D3B-4843-BC5A-70C36414029C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonConverterTests", "..\JsonConverterTests\JsonConverterTests.csproj", "{6CD2D874-7B27-40FC-B1A8-64D905CDFD5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F8DC1388-1D3B-4843-BC5A-70C36414029C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8DC1388-1D3B-4843-BC5A-70C36414029C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8DC1388-1D3B-4843-BC5A-70C36414029C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD2D874-7B27-40FC-B1A8-64D905CDFD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD2D874-7B27-40FC-B1A8-64D905CDFD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD2D874-7B27-40FC-B1A8-64D905CDFD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD2D874-7B27-40FC-B1A8-64D905CDFD5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
