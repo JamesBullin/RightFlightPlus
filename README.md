@@ -145,20 +145,20 @@ Use UML diagrams for class diagrams instead of Visual Studio class designers. Th
 * Download and build the project
 * Navigate to the solution root folder.
 * Here you will find an Excel spreadsheet called "AirportAndCityTestCases.xlsx"
- * This file contains the test inputs and expected outputs for testing the Aiport and City Search API. If the test inputs to be used or expected test results need to be changed, change the contents of this file to do this.
- * The cells marked "Location Type" and "Keyword" are the test inputs. Location Type can be either "Airport" or "City". Keyword can be any string.
- * The cell marked "Number of results" indicates the number of results expected to be returned by the API.
- * The table marked "Expected Results" are the results expected to be returned by the API for the given location type and keyword. Each row represents a single location result.
-  * Index must start at 0 and increment by one on each row.
-  * Subtype can be either "Airport" or "City".
-  * Timezone Offset must be entered in the format "hh:mm" for a positive offset or "-hh:mm" for a negative offset. Do not use a plus sign for positive offsets.
- * **Do not move cells around**. Cell locations where the framework looks for data are hard-coded into the program, so moving cells from their original location will mean the framework will not be able to find the required data and will therefore fail.
+    * This file contains the test inputs and expected outputs for testing the Aiport and City Search API. If the test inputs to be used or expected test results need to be changed, change the contents of this file to do this.
+    * The cells marked "Location Type" and "Keyword" are the test inputs. Location Type can be either "Airport" or "City". Keyword can be any string.
+    * The cell marked "Number of results" indicates the number of results expected to be returned by the API.
+    * The table marked "Expected Results" are the results expected to be returned by the API for the given location type and keyword. Each row represents a single location result.
+        * Index must start at 0 and increment by one on each row.
+        * Subtype can be either "Airport" or "City".
+        * Timezone Offset must be entered in the format "hh:mm" for a positive offset or "-hh:mm" for a negative offset. Do not use a plus sign for positive offsets.
+    * **Do not move cells around**. Cell locations where the framework looks for data are hard-coded into the program, so moving cells from their original location will mean the framework will not be able to find the required data and will therefore fail.
 * To run the tests, do the following:
- * Make sure you have built the project.
- * Open command prompt.
- * Change directory to [solution-root]/ApiTestingProject/bin/Release
- * Run the executable file "ApiTestingProject.exe"
- * Test results will be displayed on-screen and also output to an xml file.
+    * Make sure you have built the project.
+    * Open command prompt.
+    * Change directory to [solution-root]/ApiTestingProject/bin/Release
+    * Run the executable file "ApiTestingProject.exe"
+    * Test results will be displayed on-screen and also output to an xml file.
 * Troubleshooting:
- * Make sure you have Microsoft Office 2013 or later installed.
- * If you encounter the following error: "*Unable to cast COM object of type 'System.\_\_ComObject' to interface type 'Microsoft.Office.Interop.Excel.Application'*" or similar, you need to reapir your installation of Microsoft Office. To do this, open your computer's Settings, click on Apps, find Microsoft Office, and then click "Modify". You will be given the option to do a Quick Repair. Do this, and then try to run the framework again.
+    * Make sure you have Microsoft Office 2013 or later installed.
+    * If you encounter the following error: "*Unable to cast COM object of type 'System.\_\_ComObject' to interface type 'Microsoft.Office.Interop.Excel.Application'*" or similar, you need to reapir your installation of Microsoft Office. To do this, open your computer's Settings, click on Apps, find Microsoft Office, and then click "Modify". You will be given the option to do a Quick Repair. Do this, and then try to run the framework again.
