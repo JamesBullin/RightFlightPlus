@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ApiTestingProject.Address">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAAQAAIAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>AirportAndCityService\DataModel\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiTestingProject.AirportAndCityDto">
+    <Position X="3.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirportAndCityService\DataModel\AirportAndCityDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Data" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ApiTestingProject.GeoCode">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirportAndCityService\DataModel\GeoCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiTestingProject.Location">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAKAAAAAAAAAAAABAAAAAQAABAAAAACAAAAAACAAAA=</HashCode>
+      <FileName>AirportAndCityService\DataModel\Location.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GeoCode" />
+      <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ApiTestingProject.AirportAndCityCallManager">
+    <Position X="6.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>AirportAndCityService\AirportAndCityCallManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiTestingProject.AirportAndCityService">
+    <Position X="1.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirportAndCityService\AirportAndCityService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_airportAndCityCallManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="TokenAPI.ITokenService" Collapsed="true">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -8,7 +8,7 @@ namespace ApiTestingProject
 {
     public class DurationConverter : JsonConverter<TimeSpan>
     {
-        private Regex m_regex = new Regex(@"\APT(?<hours>\d{2})H((?<minutes>\d{2})M)?\z");
+        private Regex m_regex = new Regex(@"\APT(?<hours>\d{1,2})H((?<minutes>\d{2})M)?\z");
 
         public override TimeSpan ReadJson(JsonReader reader, Type objectType, TimeSpan existingValue, bool hasExistingValue, JsonSerializer serializer)
         {

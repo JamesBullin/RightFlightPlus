@@ -14,7 +14,7 @@ namespace ApiTestingProject
         {
             m_authorizationToken = authorizationToken;
             
-            m_client = new RestClient(ConfigReader.BaseUrl);
+            m_client = new RestClient(ConfigReader.AirportCityBaseUrl);
         }
 
         public string GetAirportAndCityRawResult(LocationType subType, string keyword)

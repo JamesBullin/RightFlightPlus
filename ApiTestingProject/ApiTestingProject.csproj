@@ -104,10 +104,13 @@
     <Compile Include="JsonConverters\TimeZoneOffsetConverter.cs" />
     <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\FlightOfferTests.cs" />
     <Compile Include="Tests\TestCaseLoaders\AirportAndCityLoader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FlightOffersClassDiagram.cd" />
     <None Include="app.config" />
+    <None Include="AirportAndCityClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
