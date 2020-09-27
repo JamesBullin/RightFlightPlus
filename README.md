@@ -153,6 +153,7 @@ Use UML diagrams for class diagrams instead of Visual Studio class designers. Th
         * Subtype can be either "Airport" or "City".
         * Timezone Offset must be entered in the format "hh:mm" for a positive offset or "-hh:mm" for a negative offset. Do not use a plus sign for positive offsets.
     * **Do not move cells around**. Cell locations where the framework looks for data are hard-coded into the program, so moving cells from their original location will mean the framework will not be able to find the required data and will therefore fail.
+    * **Do not change the format of cells (i.e. General/Number/Text/etc).** This will cause the program to interpret the data type of data stored in cells incorrectly. 
 * To run the tests, do the following:
     * Make sure you have built the project.
     * Open command prompt.
