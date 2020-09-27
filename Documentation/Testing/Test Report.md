@@ -18,3 +18,12 @@ TokenTests.IsDataCorrect
 * Failed: The tests were wrong due to Copy-paste errors
 * Solution: I corrected the tests to test the relevant parts of the API data structure.
 
+FlightOfferTests.NumberOfResultsIsCorrect
+
+* Failed: The base URL for the FlightOfferTests API was slightly different from the AirportAndCitiesAPI. Using the latter base URL caused an 400 error.
+* Solution: Separate the base URLs in the app.config files, and use a seperate variable for each API.
+
+* Failed: The "non-stop" parameter for the FlightOfferTests API expected a string of either "true" or "false". Instead it received a boolean value.
+* Solution: submitted a string of value "true".
+* Failed Json converter didn't recognise a duration string format. 
+* Solution: The regular expression used to parse the duration was corrected to accept a string where the hours are given as a single digit.

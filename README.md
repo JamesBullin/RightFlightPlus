@@ -3,9 +3,23 @@ Air Travel Booking App using Flight API
 
 ## Project Definition of Done
 
-- [ ] Connect a web API to our C# project
-- [ ] Create and run tests for XX% of the API data structure
-- [ ] Ensure 100% of the tests pass.
+- [x] Connect a web API to our C# project
+- [x] Create and run tests for 80% of the API essential parts of the data structure
+- [x] Ensure 100% of the tests pass.
+
+## Class Diagrams:
+
+### Airport And City Search API
+
+![image-20200927211345764](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927211345764.png)
+
+### Flight Offers Search API
+
+### ![image-20200927211612999](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927211612999.png)
+
+### Token API
+
+![image-20200927213439120](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927213439120.png)
 
 ## Sprint 1
 
@@ -13,7 +27,7 @@ Air Travel Booking App using Flight API
 * Select API in Postman
   * Obtain API token
 * Setup Project Structure
-*Conduct Test Analysis
+* Conduct Test Analysis
 * Design Data Models
 
 
@@ -30,7 +44,7 @@ Air Travel Booking App using Flight API
 
 ### Sprint Retrospective
 
-* Possibly spending too much time on documentation, and updating the kanban board
+* Possibly spending too much time on documentation, and updating the Kanban board
 * We faced some difficulties with merging work from different team members. This may have been due to improper use of branches and pull requests. In addition, changes were made to the project that were not saved when commits were made, leading to some confusion.
 
 On the whole, the first sprint has been very productive.
@@ -53,7 +67,7 @@ On the whole, the first sprint has been very productive.
 
 ### Sprint Retrospective
 
-* We acheived the goals set out at the beginning of the sprint. Division of labour was going well; we are please with the project progress. The tests caught a variety of defects and developer errors which were easy to correct.
+* We achieved the goals set out at the beginning of the sprint. Division of labour was going well; we are please with the project progress. The tests caught a variety of defects and developer errors which were easy to correct.
 
 ## Sprint 3
 
@@ -85,16 +99,43 @@ Did not do:
 
 ## Sprint 4
 
+### Goals:
+
 * Prepare for presentation
-
 * Tests for Flight offers search API J
-
 * Create additional tests for Token Request API F
-
 * Class diagram for solution J
+* Enable loading of test cases from external data source (Excel)
 
-  
+### Review
 
-Review
+* Presentation planned and rehearsed
+* Partial testing of Flight Offers API
+* Class diagrams for APIs created
+* External data source created and connected
 
-Retrospective
+### Retrospective
+
+Use UML diagrams for class diagrams instead of Visual Studio class designers. This allows dependencies to be shown.
+
+## Project Review:
+
+* Connected and tested three APIs
+* Created classes for the essential parts of the API data structure
+* Created tests for approximately 80% of the implemented data structures
+* All the tests created pass.
+
+## Project Retrospective:
+
+* Good communication, delegation of tasks, and co-operation.
+
+* Kanban board worked well for the first two sprints, but we used the Readme to organise work. The team felt that time spent updating the Kanban board was not worth it, because the sprints were very short: half a day. In future, a Kanban board would be useful in a project with longer sprints.
+* The team gained confidence in solving problems independently.
+* We gained experience using Github in a collaborative project, submitting and reviewing pull requests and resolving merge conflicts.
+* We became more familiar using APIs and associated software tools, and the ability to test them.
+
+## Future Work:
+
+* Finish Test cases for one of the APIs,
+* Test the entire data structure of each API
+* Integrate the API consumption project into a pre-existing WPF project that displays information about airports, and allows users to book flights.
