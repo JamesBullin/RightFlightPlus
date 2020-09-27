@@ -11,7 +11,7 @@ Air Travel Booking App using Flight API
 
 ### Airport And City Search API
 
-![AirportCityCD](Documentation\Class_Diagrams\AirportCityCD.png)
+![AirportCityCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/AirportCityCD.png)
 
 ### Flight Offers Search API
 
