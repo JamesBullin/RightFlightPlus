@@ -11,15 +11,15 @@ Air Travel Booking App using Flight API
 
 ### Airport And City Search API
 
-![image-20200927211345764](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927211345764.png)
+![AirportCityCD](Documentation\Class_Diagrams\AirportCityCD.png)
 
 ### Flight Offers Search API
 
-### ![image-20200927211612999](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927211612999.png)
+### ![FlightOffersCD](Documentation\Class_Diagrams\FlightOffersCD.png)
 
 ### Token API
 
-![image-20200927213439120](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200927213439120.png)
+![TokenCD](Documentation\Class_Diagrams\TokenCD.png)
 
 ## Sprint 1
 
