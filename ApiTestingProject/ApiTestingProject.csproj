@@ -79,7 +79,7 @@
     <Compile Include="AirportAndCityService\AirportAndCityCallManager.cs" />
     <Compile Include="AirportAndCityService\AirportAndCityService.cs" />
     <Compile Include="AirportAndCityService\DataModel\Address.cs" />
-    <Compile Include="AirportAndCityService\DataModel\Airport.cs" />
+    <Compile Include="AirportAndCityService\DataModel\Location.cs" />
     <Compile Include="AirportAndCityService\DataModel\AirportAndCityDto.cs" />
     <Compile Include="AirportAndCityService\DataModel\GeoCode.cs" />
     <Compile Include="ConfigReader.cs" />
@@ -101,7 +101,9 @@
     <Compile Include="Tests\FlightOfferTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FlightOffersClassDiagram.cd" />
     <None Include="app.config" />
+    <None Include="AirportAndCityClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

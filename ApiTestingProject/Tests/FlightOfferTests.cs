@@ -17,7 +17,7 @@ namespace ApiTestingProject
 
             string originLocationCode = "LHR";
             string destinationLocationCode = "JFK";
-            DateTime departureDate = new DateTime(2020, 10, 01);
+            DateTime departureDate = (DateTime.Now.AddDays(10));
             int numAdults = 1;
 
             FlightOffersService request;
@@ -31,15 +31,49 @@ namespace ApiTestingProject
             }
 
             [Test]
-            public void IsExceptionThrown()
+            public void NumberOfResultsIsCorrect()
             {
+                int expectedNumResults = 5;
+                Assert.That(result.Data.Count, Is.EqualTo(expectedNumResults));
             }
 
             [Test]
-            public void NumberOfResultsIsCorrect()
+            public void IDIsNumerical()
             {
-                int expectedNumResults = 10;
-                Assert.That(result.Data.Count, Is.EqualTo(expectedNumResults));
+                    Assert.That(result.Data[0].Id, Is.AtLeast(0));
+            }
+
+            [Test]
+            public void LastTicketingDateIsInFuture()
+            {
+                DateTime departureTime = result.Data[0].Itineraries[0].Segments[0].Departure.Time;
+                Assert.That(result.Data[0].LastTicketingDate, Is.InRange(DateTime.Now, departureTime));
+            }
+
+            [Test]
+            public void NumBookableSeatsIsNumerical()
+            {
+                Assert.That(result.Data[0].NumberOfBookableSeats, Is.InRange(0, 1000));
+            }
+
+            [Test]
+            public void AtLeastOneItinerary()
+            {
+                Assert.That(result.Data[0].Itineraries.Count, Is.AtLeast(1));
+            }
+
+            [Test]
+            public void ItineraryDurationIsNumerical()
+            {
+                TimeSpan minimumDuration = TimeSpan.FromMinutes(1.0);
+                TimeSpan maximumDuration = TimeSpan.FromDays(2.0);
+                Assert.That(result.Data[0].Itineraries[0].Duration, Is.AtLeast(minimumDuration));
+            }
+
+            [Test]
+            public void AtLeastOneSegment()
+            {
+                Assert.That(result.Data[0].Itineraries[0].Segments.Count, Is.AtLeast(1));
             }
         }
     }

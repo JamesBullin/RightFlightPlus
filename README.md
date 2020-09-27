@@ -35,10 +35,66 @@ Air Travel Booking App using Flight API
 
 On the whole, the first sprint has been very productive.
 
-## Sprint 1
+## Sprint 2
 
 ### Sprint Goals
 * Create and run tests for the Airport and City Search API
 * Create and run tests for the Token Request API
-* Research a new API: Flight Offers Search API
+* Research a new API
  * Create a data model for the new API.
+
+### Sprint Review
+
+* Created and passed tests for the Airport and City Search API
+* Created and passed tests for the Token Request API
+* Researched Flight Offers Search API
+ * Created a data model for the new API
+ * Wrote code to consume the Flight Offers Search API
+
+### Sprint Retrospective
+
+* We acheived the goals set out at the beginning of the sprint. Division of labour was going well; we are please with the project progress. The tests caught a variety of defects and developer errors which were easy to correct.
+
+## Sprint 3
+
+### Goals
+
+* Tests for Flight offers search API
+* Create additional tests for Token Request API
+* Create additional tests for Airport and City Search API
+* Add more Json Conversions
+* Write test summary reports
+* Class diagram for solution
+
+### Review
+
+* Create additional tests for Airport and City Search API
+* Add more Json Conversions
+
+Did not do:
+
+* Tests for Flight offers search API
+* Write test summary reports
+* Class diagram for solution
+
+### Retrospective
+
+* Had issues with merge conflicts
+* Readme was updated on Github and was not saved correctly; work deleted.
+* Difficulties in communication led to incomplete sprint goals.
+
+## Sprint 4
+
+* Prepare for presentation
+
+* Tests for Flight offers search API J
+
+* Create additional tests for Token Request API F
+
+* Class diagram for solution J
+
+  
+
+Review
+
+Retrospective

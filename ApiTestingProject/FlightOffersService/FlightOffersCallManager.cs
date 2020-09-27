@@ -15,7 +15,7 @@ namespace ApiTestingProject
         {
             m_authorizationToken = authorizationToken;
 
-            m_client = new RestClient(ConfigReader.BaseUrl);
+            m_client = new RestClient(ConfigReader.FlightOffersBaseUrl);
         }
 
         public string GetFlightOffersRawResult(string originLocationCode, string destinationLocationCode, DateTime departureDate, int adults)
@@ -30,7 +30,7 @@ namespace ApiTestingProject
             request.AddParameter("adults", adults);
 
             request.AddParameter("travelClass", "ECONOMY");
-            request.AddParameter("nonStop", true);
+            request.AddParameter("nonStop", "true");
             request.AddParameter("currencyCode", "GBP");
             request.AddParameter("max", 5);
 
