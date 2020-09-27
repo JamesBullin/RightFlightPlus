@@ -11,15 +11,15 @@ Air Travel Booking App using Flight API
 
 ### Airport And City Search API
 
-![AirportCityCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/AirportCityCD.png)
+![AirportCityCD](Documentation/Class_Diagrams/AirportCityCD.png)
 
 ### Flight Offers Search API
 
-### ![FlightOffersCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/FlightOffersCD.png)
+### ![FlightOffersCD](Documentation/Class_Diagrams/FlightOffersCD.png)
 
 ### Token API
 
-![TokenCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/TokenCD.png)
+![TokenCD](Documentation/Class_Diagrams/TokenCD.png)
 
 ## Sprint 1
 
@@ -161,4 +161,4 @@ Use UML diagrams for class diagrams instead of Visual Studio class designers. Th
     * Test results will be displayed on-screen and also output to an xml file.
 * Troubleshooting:
     * Make sure you have Microsoft Office 2013 or later installed.
-    * If you encounter the following error: "*Unable to cast COM object of type 'System.\_\_ComObject' to interface type 'Microsoft.Office.Interop.Excel.Application'*" or similar, you need to reapir your installation of Microsoft Office. To do this, open your computer's Settings, click on Apps, find Microsoft Office, and then click "Modify". You will be given the option to do a Quick Repair. Do this, and then try to run the framework again.
+    * If you encounter the following error: "*Unable to cast COM object of type 'System.\_\_ComObject' to interface type 'Microsoft.Office.Interop.Excel.Application'*" or similar, you may need to repair your installation of Microsoft Office. To do this, open your computer's Settings, click on Apps, find Microsoft Office, and then click "Modify". You will be given the option to do a Quick Repair. Do this, and then try to run the framework again.
