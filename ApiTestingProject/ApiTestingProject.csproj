@@ -40,6 +40,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -79,7 +80,7 @@
     <Compile Include="AirportAndCityService\AirportAndCityCallManager.cs" />
     <Compile Include="AirportAndCityService\AirportAndCityService.cs" />
     <Compile Include="AirportAndCityService\DataModel\Address.cs" />
-    <Compile Include="AirportAndCityService\DataModel\Airport.cs" />
+    <Compile Include="AirportAndCityService\DataModel\Location.cs" />
     <Compile Include="AirportAndCityService\DataModel\AirportAndCityDto.cs" />
     <Compile Include="AirportAndCityService\DataModel\GeoCode.cs" />
     <Compile Include="ConfigReader.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Tests\AirportAndCityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ConverterTests.cs" />
+    <Compile Include="Tests\TestCaseLoaders\AirportAndCityLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -108,6 +110,35 @@
       <Project>{f8dc1388-1d3b-4843-bc5a-70c36414029c}</Project>
       <Name>TokenAPI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
