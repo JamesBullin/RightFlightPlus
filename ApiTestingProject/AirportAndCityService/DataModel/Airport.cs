@@ -22,7 +22,8 @@ namespace ApiTestingProject
         public string Id { get; set; }
 
         [JsonProperty("timeZoneOffset")]
-        public string TimeZoneOffset { get; set; }
+        [JsonConverter(typeof(TimeZoneOffsetConverter))]
+        public TimeSpan TimeZoneOffset { get; set; }
 
         [JsonProperty("iataCode")]
         public string IataCode { get; set; }
