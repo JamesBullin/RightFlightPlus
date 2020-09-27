@@ -26,7 +26,8 @@ namespace ApiTestingProject
         public string OperatorCode { get; set; }
 
         [JsonProperty("duration")]
-        public string Duration { get; set; }
+        [JsonConverter(typeof(DurationConverter))]
+        public TimeSpan Duration { get; set; }
 
         [JsonProperty("id")]
         public int Id { get; set; }
