@@ -22,12 +22,6 @@ namespace ApiTestingProject
             result = request.GetAirportAndCityResult(testLocationType, testKeyword);
         }
 
-        /*[Test]
-        public void IsState200()
-        {
-            Assert.That(result.m.GetStatusCode(), Is.EqualTo("OK"));
-        }*/
-
         [Test]
         public void NumberOfResultsIsCorrect()
         {
