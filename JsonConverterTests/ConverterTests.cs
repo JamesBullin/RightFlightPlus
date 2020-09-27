@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using ApiTestingProject;
 
-namespace ApiTestingProject
+namespace JsonConverterTests
 {
     [TestFixture]
     public class ConverterTests
