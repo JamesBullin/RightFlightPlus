@@ -6,7 +6,7 @@ namespace ApiTestingProject
 {
     public enum LocationType { Airport = 2, City = 4 }
 
-    public class Airport
+    public class Location
     {
         [JsonProperty("subType")]
         [JsonConverter(typeof(StringEnumConverter))]

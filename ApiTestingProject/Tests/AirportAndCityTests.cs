@@ -32,7 +32,7 @@ namespace ApiTestingProject
         [Test]
         public void SubTypeIsCorrect()
         {
-            foreach(Airport a in result.Data)
+            foreach(Location a in result.Data)
             {
                 Assert.That(a.SubType, Is.EqualTo(LocationType.Airport));
             }

@@ -5,6 +5,6 @@ namespace ApiTestingProject
 {
     public class AirportAndCityDto
     {
-        public List<Airport> Data { get; set; }
+        public List<Location> Data { get; set; }
     }
 }
