@@ -6,7 +6,7 @@ namespace ApiTestingProject
 {
     public enum LocationType { Airport = 2, City = 4 }
 
-    public class Airport
+    public class Location
     {
         [JsonProperty("subType")]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -22,7 +22,8 @@ namespace ApiTestingProject
         public string Id { get; set; }
 
         [JsonProperty("timeZoneOffset")]
-        public string TimeZoneOffset { get; set; }
+        [JsonConverter(typeof(TimeZoneOffsetConverter))]
+        public TimeSpan TimeZoneOffset { get; set; }
 
         [JsonProperty("iataCode")]
         public string IataCode { get; set; }
