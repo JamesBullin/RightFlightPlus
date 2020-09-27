@@ -15,11 +15,11 @@ Air Travel Booking App using Flight API
 
 ### Flight Offers Search API
 
-### ![FlightOffersCD](Documentation\Class_Diagrams\FlightOffersCD.png)
+### ![FlightOffersCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/FlightOffersCD.png)
 
 ### Token API
 
-![TokenCD](Documentation\Class_Diagrams\TokenCD.png)
+![TokenCD](https://github.com/JamesBullin/RightFlightPlus/blob/master/Documentation/Class_Diagrams/TokenCD.png)
 
 ## Sprint 1
 
